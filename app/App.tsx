@@ -1,12 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
-import React from 'react';
-import type {PropsWithChildren} from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -16,6 +7,10 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
+import React ,{ useEffect } from 'react';
+import type {PropsWithChildren} from 'react';
+import SplashScreen from 'react-native-splash-screen'
+
 
 import {
   Colors,
@@ -56,11 +51,20 @@ function Section({children, title}: SectionProps): JSX.Element {
 }
 
 function App(): JSX.Element {
+
+   
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
+
+   useEffect(() => {
+
+     SplashScreen.hide();
+
+  
+  }, );
 
   return (
     <SafeAreaView style={backgroundStyle}>
