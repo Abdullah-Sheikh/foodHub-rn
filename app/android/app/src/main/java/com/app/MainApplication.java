@@ -7,8 +7,16 @@ import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint;
 import com.facebook.react.defaults.DefaultReactNativeHost;
+import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
+
+import org.devio.rn.splashscreen.SplashScreen;
+
+import java.util.Arrays;
 import java.util.List;
+import org.devio.rn.splashscreen.SplashScreen; // Import this.
+import org.devio.rn.splashscreen.SplashScreenReactPackage;
+
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -19,14 +27,14 @@ public class MainApplication extends Application implements ReactApplication {
           return BuildConfig.DEBUG;
         }
 
-        @Override
-        protected List<ReactPackage> getPackages() {
-          @SuppressWarnings("UnnecessaryLocalVariable")
-          List<ReactPackage> packages = new PackageList(this).getPackages();
-          // Packages that cannot be autolinked yet can be added manually here, for example:
-          // packages.add(new MyReactNativePackage());
-          return packages;
-        }
+          @Override
+          protected List<ReactPackage> getPackages() {
+              return Arrays.<ReactPackage>asList(
+                      new MainReactPackage(),
+                      new SplashScreenReactPackage()  //here
+              );
+          }
+
 
         @Override
         protected String getJSMainModuleName() {
@@ -51,6 +59,7 @@ public class MainApplication extends Application implements ReactApplication {
 
   @Override
   public void onCreate() {
+
     super.onCreate();
     SoLoader.init(this, /* native exopackage */ false);
     if (BuildConfig.IS_NEW_ARCHITECTURE_ENABLED) {

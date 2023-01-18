@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="splashscreen_bg">#FE724C</color>
+    <color name="white">#FEfecf</color>
+    <color name="app_bg">#FE724C</color>
+</resources>
