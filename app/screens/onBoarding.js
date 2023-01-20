@@ -85,6 +85,7 @@ const styles = StyleSheet.create({
         color:'#000000',
         textAlign:'center',
         fontSize:14,
+
         lineHeight:14,
         color:Colors.primary,
         fontWeight:'400'
@@ -118,17 +119,18 @@ const styles = StyleSheet.create({
         marginHorizontal:25,
         marginTop:80,
         fontSize:45,
-        fontWeight:'700',
+        
         lineHeight:55,
-        color:'#000000'
+        color:'#000000',
+        fontFamily:'SofiaPro-Bold',
     },
     titlePrimary:{
 
         marginHorizontal:25,
         fontSize:45,
-        fontWeight:'700',
         lineHeight:55,
-        color:Colors.primary
+        color:Colors.primary,
+        fontFamily:'SofiaPro-Bold',
     },
     subTitle:{
 
