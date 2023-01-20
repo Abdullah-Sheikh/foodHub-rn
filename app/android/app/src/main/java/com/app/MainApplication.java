@@ -9,6 +9,8 @@ import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint;
 import com.facebook.react.defaults.DefaultReactNativeHost;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
+import com.swmansion.rnscreens.RNScreensPackage;
+import com.th3rdwave.safeareacontext.SafeAreaContextPackage;
 
 import org.devio.rn.splashscreen.SplashScreen;
 
@@ -31,7 +33,10 @@ public class MainApplication extends Application implements ReactApplication {
           protected List<ReactPackage> getPackages() {
               return Arrays.<ReactPackage>asList(
                       new MainReactPackage(),
-                      new SplashScreenReactPackage()  //here
+                      new SplashScreenReactPackage() ,
+                      new RNScreensPackage(),
+                      new SafeAreaContextPackage()
+                       //here
               );
           }
 
