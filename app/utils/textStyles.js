@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native/types";
+import { StyleSheet } from "react-native";
 
 
 const textStyles =  StyleSheet.create({
@@ -7,7 +7,8 @@ const textStyles =  StyleSheet.create({
         fontSize:36,
         lineHeight:45,
         color:'#000000',
-        fontFamily:'SofiaPro-Bold',
+        fontFamily:'SofiaPro-Medium',
+        fontWeight:'600',
     },
     h2:{
         fontSize:30,
@@ -23,7 +24,8 @@ const textStyles =  StyleSheet.create({
     h4:{
         fontSize:18,
         color:'#000000',
-        fontFamily:'SofiaPro-Bold',
+        fontFamily:'SofiaPro-Regular',
+        fontWeight:'600',
     },
     h5:{
         fontSize:16,
@@ -47,3 +49,5 @@ const textStyles =  StyleSheet.create({
 
 
 });
+
+export default textStyles;

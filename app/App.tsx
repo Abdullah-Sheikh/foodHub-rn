@@ -25,6 +25,8 @@ const App = () => {
     }}>
        <Stack.Screen  name="Login" component={LoginScreen}/>
        <Stack.Screen  name="OnBoarding" component={OnBoarding}/>
+      
+      
      
     </Stack.Navigator>
    </NavigationContainer>

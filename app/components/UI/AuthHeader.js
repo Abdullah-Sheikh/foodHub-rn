@@ -1,8 +1,9 @@
-import { View,  StyleSheet, Image } from 'react-native'
+import { View,  StyleSheet, Image, Platform } from 'react-native'
 import Icon from 'react-native-vector-icons/AntDesign'
 
 import React from 'react'
 import { heightPercentageToDP  as hp, widthPercentageToDP} from 'react-native-responsive-screen';
+import Colors from '../../utils/colors';
 
 const AuthHeader = () => {
   return (
@@ -21,7 +22,12 @@ const AuthHeader = () => {
     
 </View>
 
-<Icon name="left" size={30} color="#900" />
+<View style={styles.BackBtn}>
+<Icon name="left" size={16} color="#000" />
+
+</View>
+
+
 
 </>
   )
@@ -51,6 +57,17 @@ const styles = StyleSheet.create({
 
 
     },
+    BackBtn:{
+      height:38,
+      width:38,
+      backgroundColor:"#ffffff",
+      marginLeft:20,
+      marginTop: Platform.OS === 'ios' ? -20 : -35 ,
+      alignItems:'center',
+      alignContent:'center',
+      padding:11,
+      borderRadius:9,
+    }
 
 
 
