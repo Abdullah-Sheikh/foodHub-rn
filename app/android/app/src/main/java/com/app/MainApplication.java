@@ -1,6 +1,9 @@
 package com.app;
 
 import android.app.Application;
+import android.view.Window;
+import android.view.WindowManager;
+
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
 import com.facebook.react.ReactNativeHost;
@@ -64,6 +67,8 @@ public class MainApplication extends Application implements ReactApplication {
 
   @Override
   public void onCreate() {
+
+
 
     super.onCreate();
     SoLoader.init(this, /* native exopackage */ false);

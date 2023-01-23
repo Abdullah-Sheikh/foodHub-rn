@@ -4,6 +4,7 @@ import SplashScreen from 'react-native-splash-screen';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import OnBoarding from './screens/onBoarding';
+import LoginScreen from './screens/LoginScreen';
 
 
 const Stack = createNativeStackNavigator();
@@ -22,7 +23,9 @@ const App = () => {
     screenOptions={{
       headerShown: false
     }}>
-      <Stack.Screen  name="OnBoarding" component={OnBoarding}/>
+       <Stack.Screen  name="Login" component={LoginScreen}/>
+       <Stack.Screen  name="OnBoarding" component={OnBoarding}/>
+     
     </Stack.Navigator>
    </NavigationContainer>
    </>

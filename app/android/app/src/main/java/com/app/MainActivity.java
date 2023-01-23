@@ -1,6 +1,8 @@
 package com.app;
 
 import android.os.Bundle;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
@@ -15,6 +17,9 @@ public class MainActivity extends ReactActivity {
 
   @Override
 protected void onCreate(Bundle savedInstanceState) {
+
+
+
   SplashScreen.show(this ,R.style.MyThemes ,false);  // here
   super.onCreate(null);
 }
