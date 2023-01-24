@@ -13,7 +13,7 @@ export default function ForgetPassword() {
         Alert.alert("New Password Send!")
     }
   return (
-    <View>
+    <View style={styles.root}>
 
      
      <AuthHeader/>
@@ -35,6 +35,10 @@ export default function ForgetPassword() {
 
 
 const styles = StyleSheet.create({
+    root:{
+        backgroundColor: "#ffffff",
+        flex:1
+      },
     heading:{
       
         marginHorizontal:20,

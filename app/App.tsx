@@ -7,6 +7,7 @@ import OnBoarding from './screens/onBoarding';
 import LoginScreen from './screens/LoginScreen';
 import SignUpScreen from './screens/SignUpScreen';
 import ForgetPassword from './screens/ForgetPassword';
+import Registration from './screens/Registration';
 
 
 const Stack = createNativeStackNavigator();
@@ -29,6 +30,7 @@ const App = () => {
        <Stack.Screen  name="SignUp" component={SignUpScreen}/>
        <Stack.Screen  name="Login" component={LoginScreen}/>
        <Stack.Screen  name="ForgetPassword" component={ForgetPassword}/>
+       <Stack.Screen  name="Registration" component={Registration}/>
       
       
       

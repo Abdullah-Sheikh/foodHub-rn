@@ -3,8 +3,13 @@ import React, { useState } from 'react'
 import Input from '../../UI/Input';
 import PrimaryBtn from '../../UI/PrimaryBtn';
 import Colors from '../../../utils/colors';
+import { useNavigation } from '@react-navigation/native';
+
 
 export default function AuthForm( {credientialsInvalid , onSubmit}) {
+
+    const navigation = useNavigation();
+
 
 
 const [enteredFullName , setEnteredFullName] = useState('');    

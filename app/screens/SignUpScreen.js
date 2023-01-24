@@ -39,6 +39,8 @@ export default function SignUpScreen({navigation}) {
         });
         return;
       }
+
+      navigation.navigate("Registration");
     
     }
   return (
