@@ -4,11 +4,11 @@ import Colors from '../../utils/colors';
 import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsive-screen';
 import textStyles from '../../utils/textStyles';
 
-export default function PrimaryBtn({onPress , label}) {
+export default function PrimaryBtn({onPress , label }) {
   return (
-    <Pressable  style={ ({pressed}) => [styles.outerContainer ,pressed && styles.pressed]} onPress={onPress}>
+    <Pressable   onPress={onPress} style={ ({pressed}) => [styles.outerContainer ,pressed && styles.pressed]} >
         <View>
-            <Text style={[textStyles.h4 , {color: "#ffffff" , textAlign:'center' }]}>{label}</Text>
+            <Text style={[textStyles.h5 , {color: "#ffffff" , textAlign:'center' , marginHorizontal:4 }]}>{label}</Text>
 
         </View>
     </Pressable>
@@ -21,6 +21,7 @@ const styles = StyleSheet.create({
 
     outerContainer:{
         backgroundColor:Colors.primary,
+        paddingHorizontal:12, 
        
         marginVertical:15,
         height:60,
@@ -29,7 +30,12 @@ const styles = StyleSheet.create({
     
         alignContent:'center',
         borderRadius:28,
-        paddingVertical:15,
+        paddingVertical:16,
+        elevation:4,
+        shadowColor: Colors.gray80,
+  shadowOffset: { width: 0, height: 2 },
+  shadowOpacity: 0.5,
+  shadowRadius: 8,
     },
 
     pressed:{

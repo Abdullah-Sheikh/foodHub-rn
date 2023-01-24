@@ -3,8 +3,13 @@ import React, { useState } from 'react'
 import Input from '../../UI/Input';
 import PrimaryBtn from '../../UI/PrimaryBtn';
 import Colors from '../../../utils/colors';
+import { useNavigation } from '@react-navigation/native';
+
 
 export default function AuthForm( {credientialsInvalid , onSubmit}) {
+
+    const navigation = useNavigation();
+
 
 
 const [enteredEmail , setEnteredEmail] = useState ('');
@@ -61,7 +66,7 @@ function submitHandler () {
           isInvalid={passwordIsInvalid}/>
 
 
-          <Text style={styles.forgetPass}>Forget password?</Text>
+          <Text style={styles.forgetPass} onPress={() => navigation.navigate("ForgetPassword")}>Forget password?</Text>
 
 
           <PrimaryBtn onPress={submitHandler} label="Login"/>

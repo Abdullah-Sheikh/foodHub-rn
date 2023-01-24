@@ -17,7 +17,9 @@ const Input = ( {
 
   return (
     <View style={styles.inputContainer}>
+      {( label &&
         <Text style={[ textStyles.h5 ,styles.label , ]}>{label}</Text>
+        )}
         <TextInput style={[styles.textInput , textStyles.h5 ,{  borderColor: isTextInputFocused == true ? Colors.primary50 :Colors.gray20} ]}
         placeholder={placeholder}
         autoCapitalize='none'

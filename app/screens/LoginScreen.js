@@ -53,7 +53,7 @@ function submitHandler (credientials){
       credientialsInvalid={credientialsInvalid}/>
 
 
-      <Text style={[ textStyles.h6 , styles.signInText]}>Don’t have an account? <Text style={{fontWeight:'500' , color: Colors.primary}}> Sign Up</Text></Text>
+      <Text style={[ textStyles.h6 , styles.signInText]}>Don’t have an account? <Text onPress={() => navigation.navigate("SignUp")} style={{fontWeight:'500' , color: Colors.primary}}> Sign Up</Text></Text>
 
 
       <SocialLogin/>
