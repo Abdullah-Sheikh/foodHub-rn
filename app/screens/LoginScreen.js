@@ -44,7 +44,7 @@ function submitHandler (credientials){
 
       <AuthHeader/>
 
-      <ScrollView>
+      <ScrollView automaticallyAdjustKeyboardInsets={true}>
       <Text style={[styles.heading , textStyles.h1]}>Login</Text>
 
 
@@ -53,7 +53,7 @@ function submitHandler (credientials){
       credientialsInvalid={credientialsInvalid}/>
 
 
-      <Text style={[ textStyles.h6 , styles.signInText]}>Already have an account?  <Text style={{fontWeight:'500' , color: Colors.primary}}>Sign In</Text></Text>
+      <Text style={[ textStyles.h6 , styles.signInText]}>Don’t have an account? <Text style={{fontWeight:'500' , color: Colors.primary}}> Sign Up</Text></Text>
 
 
       <SocialLogin/>

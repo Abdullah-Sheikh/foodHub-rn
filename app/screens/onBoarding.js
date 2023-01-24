@@ -1,9 +1,20 @@
-import { View, Text, StyleSheet, Platform, ImageBackground, Image } from 'react-native'
+import { View, Text, StyleSheet, Platform, ImageBackground, Image, Pressable } from 'react-native'
 import React from 'react'
-import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp, heightPercentageToDP} from 'react-native-responsive-screen';
 import Colors from '../utils/colors';
 
-const OnBoarding = () => {
+
+const OnBoarding = ( {navigation}) => {
+
+    function login (){
+
+        navigation.navigate('Login');
+    }
+
+    function signUp()
+    {
+        navigation.navigate('SignUp');
+    }
   return (
     <View style={styles.root}>
         <ImageBackground  
@@ -13,6 +24,8 @@ const OnBoarding = () => {
              source={require('../assets/images/gradient_bg.png')}
              style={styles.bgGradient}
             >
+                
+                <View style={styles.headerFlex}>
                 <View style={styles.skipBtn}>
                 <Text style={styles.skipText} >Skip</Text>
                 </View>
@@ -24,13 +37,20 @@ const OnBoarding = () => {
 
                 <Text style={styles.subTitle}>Your favourite foods delivered fast at your door.</Text>
 
+                </View>
+
+                <View style={styles.centerFlex}/>
+
+
+                <View style={styles.bottomflex}>
+
 
                 <View style={styles.signInWith}>
                     <View  style={styles.divider}/>
                     <Text style={styles.dividerText}>sign in with</Text>
                     <View  style={styles.divider}/>
 
-                </View>
+                </View >
 
                 <View style={styles.socialLogin}>
 
@@ -55,13 +75,16 @@ const OnBoarding = () => {
 
                 </View>
                 
+                <Pressable onPress={signUp}>
                 <View style={styles.signInOption}>
                     <Text style={styles.signInOptionText}>Start with email or phone</Text>
 
                 </View>
+                </Pressable>
 
-                <Text style={styles.signInText}>Already have an account?  <Text style={{fontWeight:'500' ,textDecorationLine:'underline'}}>Sign In</Text></Text>
+                <Text style={styles.signInText}>Already have an account?  <Text onPress={login} style={{fontWeight:'500' ,textDecorationLine:'underline'}}>Sign In</Text></Text>
 
+                </View>
             </ImageBackground>
        
         </ImageBackground>
@@ -117,7 +140,7 @@ const styles = StyleSheet.create({
     title:{
 
         marginHorizontal:25,
-        marginTop:80,
+        marginTop:heightPercentageToDP('4%'),
         fontSize:45,
         
         lineHeight:55,
@@ -171,7 +194,7 @@ const styles = StyleSheet.create({
 
     signInWith:{
         justifyContent:'space-evenly',
-        marginTop:hp('30%'),
+       
         flexDirection:'row',
         marginHorizontal:30,
         marginBottom:15,
@@ -223,6 +246,19 @@ const styles = StyleSheet.create({
         fontSize:13,
         lineHeight:13,
         fontWeight:'400',
+    },
+
+    bottomflex:{
+
+       flex:2,
+
+    },
+
+    headerFlex:{
+        flex:1,
+    },
+    centerFlex:{
+        flex:2.65
     }
 
    

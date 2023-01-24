@@ -1,9 +1,13 @@
-import { View, Text, Image , StyleSheet } from 'react-native'
+import { View, Text, Image , StyleSheet, Pressable, Alert } from 'react-native'
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import React from 'react'
 import Colors from '../../utils/colors';
 
 export default function SocialLogin() {
+
+    function socialLogin() {
+        Alert.alert("Social Login Failed" , "Try Again Later")
+    }
   return (
     <View>
 
@@ -18,6 +22,8 @@ export default function SocialLogin() {
 
                 <View style={styles.socialLogin}>
 
+
+                    <Pressable onPress={ socialLogin}>
                     <View style={styles.socialLoginContainer}>
                         <Image  
                         source={require('../../assets/images/fb_icon.png')}
@@ -26,7 +32,9 @@ export default function SocialLogin() {
                         <Text style={styles.socialText}>FACEBOOK</Text>
 
                     </View>
+                    </Pressable>
 
+                    <Pressable onPress={ socialLogin}>
                     <View style={styles.socialLoginContainer}>
                         <Image  
                         source={require('../../assets/images/g_icon.png')}
@@ -35,6 +43,7 @@ export default function SocialLogin() {
                         <Text style={styles.socialText}>GOOGLE</Text>
 
                     </View>
+                    </Pressable>
     </View>
 
     </View>

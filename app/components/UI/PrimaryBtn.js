@@ -8,7 +8,7 @@ export default function PrimaryBtn({onPress , label}) {
   return (
     <Pressable  style={ ({pressed}) => [styles.outerContainer ,pressed && styles.pressed]} onPress={onPress}>
         <View>
-            <Text style={[textStyles.h4 , {color: "#ffffff" , textAlign:'center'}]}>{label}</Text>
+            <Text style={[textStyles.h4 , {color: "#ffffff" , textAlign:'center' }]}>{label}</Text>
 
         </View>
     </Pressable>
@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
         height:60,
         alignItems:'center',
         marginHorizontal:widthPercentageToDP('20%'),
+    
         alignContent:'center',
         borderRadius:28,
         paddingVertical:15,

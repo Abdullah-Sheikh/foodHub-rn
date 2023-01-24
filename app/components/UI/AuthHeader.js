@@ -1,11 +1,14 @@
-import { View,  StyleSheet, Image, Platform } from 'react-native'
+import { View,  StyleSheet, Image, Platform, Pressable } from 'react-native'
 import Icon from 'react-native-vector-icons/AntDesign'
 
 import React from 'react'
 import { heightPercentageToDP  as hp, widthPercentageToDP} from 'react-native-responsive-screen';
+import { useNavigation } from '@react-navigation/native';
 import Colors from '../../utils/colors';
 
 const AuthHeader = () => {
+
+  const navigation = useNavigation();
   return (
     <>
     <View style={styles.screenDesignContainer}>
@@ -22,10 +25,14 @@ const AuthHeader = () => {
     
 </View>
 
+<Pressable onPress={() => navigation.goBack(null)}>
 <View style={styles.BackBtn}>
 <Icon name="left" size={16} color="#000" />
 
+
 </View>
+
+</Pressable>
 
 
 
