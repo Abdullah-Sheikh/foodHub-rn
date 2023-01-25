@@ -7,10 +7,12 @@ import Colors from '../utils/colors';
 import Input from '../components/UI/Input';
 import PrimaryBtn from '../components/UI/PrimaryBtn';
 
-export default function Registration() {
+export default function Registration({navigation}) {
 
+  
     function sendPassword() {
         Alert.alert("New Password Send!")
+        navigation.navigate('VerifyCode')
     }
   return (
     <View style={styles.root}>

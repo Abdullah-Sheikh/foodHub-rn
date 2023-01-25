@@ -8,7 +8,7 @@ import Colors from '../utils/colors';
 import AuthForm from '../components/Auth/Login/AuthForm';
 import SocialLogin from '../components/UI/SocialLogin';
 
-const LoginScreen = () => {
+const LoginScreen = ({navigation}) => {
 
   const [credientialsInvalid , setCredientialsIsInvalid] = useState({
 

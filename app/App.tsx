@@ -8,6 +8,7 @@ import LoginScreen from './screens/LoginScreen';
 import SignUpScreen from './screens/SignUpScreen';
 import ForgetPassword from './screens/ForgetPassword';
 import Registration from './screens/Registration';
+import VerfiyCode from './screens/VerfiyCode';
 
 
 const Stack = createNativeStackNavigator();
@@ -26,11 +27,15 @@ const App = () => {
     screenOptions={{
       headerShown: false
     }}>
+       <Stack.Screen  name="VerifyCode" component={VerfiyCode}/>
        <Stack.Screen  name="OnBoarding" component={OnBoarding}/>
        <Stack.Screen  name="SignUp" component={SignUpScreen}/>
        <Stack.Screen  name="Login" component={LoginScreen}/>
        <Stack.Screen  name="ForgetPassword" component={ForgetPassword}/>
        <Stack.Screen  name="Registration" component={Registration}/>
+      
+
+
       
       
       

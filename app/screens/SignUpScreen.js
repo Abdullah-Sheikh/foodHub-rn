@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, StyleSheet } from 'react-native'
+import { View, Text, ScrollView, StyleSheet, Alert } from 'react-native'
 import React  , {useState} from 'react'
 import AuthHeader from '../components/UI/AuthHeader'
 import textStyles from '../utils/textStyles';
