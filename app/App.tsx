@@ -9,7 +9,10 @@ import SignUpScreen from './screens/SignUpScreen';
 import ForgetPassword from './screens/ForgetPassword';
 import Registration from './screens/Registration';
 import VerfiyCode from './screens/VerfiyCode';
-
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import BottomNavigator from './Navigators/BottomNavigator';
+import Home from './screens/Home';
+import Cart from './screens/Cart';
 
 const Stack = createNativeStackNavigator();
 
@@ -20,6 +23,7 @@ const App = () => {
    
     SplashScreen.hide();
 } );
+
   return (
    <>
    <NavigationContainer>
@@ -27,20 +31,22 @@ const App = () => {
     screenOptions={{
       headerShown: false
     }}>
-       <Stack.Screen  name="VerifyCode" component={VerfiyCode}/>
+       
        <Stack.Screen  name="OnBoarding" component={OnBoarding}/>
        <Stack.Screen  name="SignUp" component={SignUpScreen}/>
        <Stack.Screen  name="Login" component={LoginScreen}/>
        <Stack.Screen  name="ForgetPassword" component={ForgetPassword}/>
        <Stack.Screen  name="Registration" component={Registration}/>
-      
+       <Stack.Screen  name="VerifyCode" component={VerfiyCode}/>
+       <Stack.Screen  name="Home" component={BottomNavigator}/>
 
-
-      
+       
       
       
      
     </Stack.Navigator>
+
+    
    </NavigationContainer>
    </>
   )

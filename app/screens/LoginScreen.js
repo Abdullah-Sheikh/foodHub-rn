@@ -36,6 +36,8 @@ function submitHandler (credientials){
     return;
   }
 
+  navigation.navigate("Home");
+
 }
 
   return (
