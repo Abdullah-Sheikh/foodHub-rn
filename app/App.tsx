@@ -13,6 +13,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import BottomNavigator from './Navigators/BottomNavigator';
 import Home from './screens/Home';
 import Cart from './screens/Cart';
+import DrawerNavigation from './Navigators/DrawerNavigation';
 
 const Stack = createNativeStackNavigator();
 
@@ -31,14 +32,14 @@ const App = () => {
     screenOptions={{
       headerShown: false
     }}>
-       
+       <Stack.Screen name='Drawer' component={DrawerNavigation}/>
        <Stack.Screen  name="OnBoarding" component={OnBoarding}/>
        <Stack.Screen  name="SignUp" component={SignUpScreen}/>
        <Stack.Screen  name="Login" component={LoginScreen}/>
        <Stack.Screen  name="ForgetPassword" component={ForgetPassword}/>
        <Stack.Screen  name="Registration" component={Registration}/>
        <Stack.Screen  name="VerifyCode" component={VerfiyCode}/>
-       <Stack.Screen  name="Home" component={BottomNavigator}/>
+      
 
        
       

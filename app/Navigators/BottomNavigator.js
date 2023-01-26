@@ -62,7 +62,10 @@ export default function BottomNavigator() {
         },
         tabBarActiveTintColor: 'tomato',
         tabBarInactiveTintColor: 'gray',
+        headerShown: false
+        
       })}>
+        
         <Tab.Screen name="Main" component={Main} />
         <Tab.Screen name="Location" component={Location} />
         <Tab.Screen name="Cart" component={Cart} />

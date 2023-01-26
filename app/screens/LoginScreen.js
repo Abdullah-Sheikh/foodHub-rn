@@ -36,7 +36,7 @@ function submitHandler (credientials){
     return;
   }
 
-  navigation.navigate("Home");
+  navigation.navigate("Drawer");
 
 }
 
