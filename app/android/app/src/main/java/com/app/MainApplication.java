@@ -22,6 +22,11 @@ import java.util.List;
 import org.devio.rn.splashscreen.SplashScreen; // Import this.
 import org.devio.rn.splashscreen.SplashScreenReactPackage;
 
+import com.swmansion.reanimated.ReanimatedPackage;
+import com.swmansion.gesturehandler.RNGestureHandlerPackage;
+
+
+
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -38,7 +43,9 @@ public class MainApplication extends Application implements ReactApplication {
                       new MainReactPackage(),
                       new SplashScreenReactPackage() ,
                       new RNScreensPackage(),
-                      new SafeAreaContextPackage()
+                      new SafeAreaContextPackage(),
+                      new ReanimatedPackage(),
+                      new RNGestureHandlerPackage()
                        //here
               );
           }
