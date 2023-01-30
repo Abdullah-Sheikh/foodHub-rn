@@ -3,6 +3,7 @@ import { Button, View } from 'react-native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 import BottomNavigator from './BottomNavigator';
+import SidebarMenu from '../components/Menu/SidebarMenu';
 
 function HomeScreen({ navigation }) {
   return (
@@ -31,7 +32,8 @@ export default function DrawerNavigation() {
       <Drawer.Navigator initialRouteName="SHome" 
       screenOptions={{
         headerShown: false
-      }}>
+      }}
+      drawerContent={props => <SidebarMenu {...props} />}>
         <Drawer.Screen name="Home" component={BottomNavigator} />
         <Drawer.Screen name="Notifications" component={NotificationsScreen} />
       </Drawer.Navigator>
