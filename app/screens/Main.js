@@ -6,6 +6,8 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import { heightPercentageToDP as hp, widthPercentageToDP , } from 'react-native-responsive-screen';
 import IconInput from '../components/UI/IconInput';
 import CategoryList from '../components/UI/FoodCategory/CategoryList';
+import RestaurantsList from '../components/UI/FeaturedRestaurants/RestaurantsList';
+import { ScrollView } from 'react-native-gesture-handler';
 
 export default function Main({navigation}) {
   function OpenDrawer (){
@@ -45,6 +47,8 @@ export default function Main({navigation}) {
         </View>
       </View>
 
+      <ScrollView style={{}}>
+
       <Text style={[textStyles.h1 , {marginVertical:10, fontWeight:'700' , color:"#323643"}]}>{ `What would you like\nto order` }</Text>
 
        <View style={{ flexDirection:'row' , justifyContent:'space-between'}}>
@@ -55,6 +59,11 @@ export default function Main({navigation}) {
       </View >
 
       <CategoryList/>
+
+      <RestaurantsList/>
+
+
+      </ScrollView>
 
       
       </SafeAreaView>
@@ -138,6 +147,7 @@ shadowRadius: 6,
     height:60,
     width:55,
     backgroundColor:"#ffffff",
+    marginRight:5,
    
    
     alignItems:'center',
