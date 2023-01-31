@@ -14,6 +14,7 @@ export default function SidebarMenu( {props}) {
     <View style={styles.root}>
 
         <SafeAreaView>
+        <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
             <Image 
             source={require('../../assets/images/sidebar_profile_img.png')}
             style={styles.headerImg}/>
@@ -21,7 +22,7 @@ export default function SidebarMenu( {props}) {
             <Text style={[textStyles.h6 ,styles.subHeading]}>farionwick@gmail.com</Text>
 
            
-            <ScrollView>
+          
 
             <SideBarItem label="My Orders" image={require("../../assets/icons/sidebarIcons/orderIcon.png")}/>
             <SideBarItem label="My Profile" image={require("../../assets/icons/sidebarIcons/profileIcon.png")}/>
@@ -36,8 +37,8 @@ export default function SidebarMenu( {props}) {
         <View style={{flexDirection:'row' ,alignContent:'center' ,alignItems:'center'}}>
             <Image
             source={require('../../assets/icons/logoutIcon.png')}
-            style/>
-            <Text style={[textStyles.h4 , {color: "#ffffff" , textAlign:'center' , marginHorizontal:4 }]}>Log Out</Text>
+            style={styles.logoutImage}/>
+            <Text style={[textStyles.h5 , {color: "#ffffff" , textAlign:'center' , marginHorizontal:4 }]}>Log Out</Text>
 
         </View>
     </Pressable>
@@ -85,10 +86,10 @@ const styles = StyleSheet.create({
     outerContainer:{
 
         backgroundColor:Colors.primary,
-        width:widthPercentageToDP("35%"),
-        paddingHorizontal:5, 
+        width:widthPercentageToDP("28%"),
+        paddingHorizontal:8, 
         marginTop:45,
-        marginBottom:20,
+        marginBottom:100,
         marginHorizontal:5,
         borderRadius:28,
         paddingVertical:10,

@@ -5,7 +5,7 @@ import { FlatList } from 'react-native-gesture-handler'
 
 export default function CategoryList() {
 
-  const [ selected , setSelected] = useState();
+  const [ selected , setSelected] = useState('1');
 
   const renderItem = ({item}) =>{
 

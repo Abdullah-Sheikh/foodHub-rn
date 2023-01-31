@@ -5,8 +5,16 @@ import Colors from '../../../utils/colors';
 import { widthPercentageToDP } from 'react-native-responsive-screen';
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import RestaurantItem from './RestaurantItem';
+import { FlatList } from 'react-native-gesture-handler';
+import { DrawerItem } from '@react-navigation/drawer';
 
 export default function RestaurantsList() {
+
+    const renderItem = () =>{
+        return(
+        <RestaurantItem/>
+        )
+    }
   return (
     <View style={styles.root}>
 
@@ -16,7 +24,20 @@ export default function RestaurantsList() {
         <Text style={[textStyles.h5 , styles.viewText]}>View All <Ionicons name="arrow-forward" size={15} color={Colors.primary} /></Text>
         </View>
 
-        <RestaurantItem/>
+        <FlatList
+        data={[
+            {key: '1' },
+            {key: '2' },
+            {key: '3'},
+            
+          ]}
+        horizontal
+        keyExtractor={item => item.key}
+        renderItem={renderItem}
+     
+        />
+
+       
 
        
      
