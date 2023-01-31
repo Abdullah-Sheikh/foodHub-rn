@@ -51,6 +51,7 @@
 	<false/>
 	<key>UIAppFonts</key>
 	<array>
+		<string>FontAwesome.ttf</string>
 		<string>Ionicons.ttf</string>
 		<string>AntDesign.ttf</string>
 		<string>FontAwesome5_Regular.ttf</string>
