@@ -34,8 +34,7 @@ const App = () => {
     screenOptions={{
       headerShown: false
     }}>
-       <Stack.Screen  name="Profile" component={ProfileScreen}/>
-       <Stack.Screen  name='FoodDescription' component={FoodDescription}/>
+      
        <Stack.Screen name='Drawer' component={DrawerNavigation}/>
        <Stack.Screen  name="OnBoarding" component={OnBoarding}/>
        <Stack.Screen  name="SignUp" component={SignUpScreen}/>
@@ -43,6 +42,8 @@ const App = () => {
        <Stack.Screen  name="ForgetPassword" component={ForgetPassword}/>
        <Stack.Screen  name="Registration" component={Registration}/>
        <Stack.Screen  name="VerifyCode" component={VerfiyCode}/>
+       <Stack.Screen  name="Profile" component={ProfileScreen}/>
+       <Stack.Screen  name='FoodDescription' component={FoodDescription}/>
       
 
        

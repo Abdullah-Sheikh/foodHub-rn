@@ -1,8 +1,14 @@
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import textStyles from '../../utils/textStyles'
+import { useNavigation } from '@react-navigation/native'
 
-export default function SideBarItem({label , image}) {
+export default function SideBarItem({label , image , page}) {
+
+
+    const navigation = useNavigation();
+
+
 
     
 
@@ -10,7 +16,7 @@ export default function SideBarItem({label , image}) {
 
    
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity onPress={ () => {navigation.navigate(page)}} style={styles.container}>
         
         <Image
         source={image}
