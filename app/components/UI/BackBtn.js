@@ -1,8 +1,12 @@
 import { View, Text, StyleSheet, Pressable } from 'react-native'
 import React from 'react'
 import Icon from 'react-native-vector-icons/AntDesign'
+import { useNavigation } from '@react-navigation/native';
+
 
 export default function BackBtn() {
+  const navigation = useNavigation();
+
   return (
     <Pressable onPress={() => navigation.goBack(null)}>
     <View  style={styles.container} >

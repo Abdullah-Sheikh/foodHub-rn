@@ -1,19 +1,22 @@
-import { View, Text, StyleSheet, SafeAreaView, ImageBackground, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, SafeAreaView, ImageBackground, TouchableOpacity, Platform, Image } from 'react-native'
 import React from 'react'
 import BackBtn from '../components/UI/BackBtn'
 import WishListBtn from '../components/UI/WishListBtn'
-import { widthPercentageToDP } from 'react-native-responsive-screen'
+import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsive-screen'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import Icon5 from 'react-native-vector-icons/FontAwesome'
 
 import textStyles from '../utils/textStyles'
 import Colors from '../utils/colors'
 import SetQuantity from '../components/UI/SetQuantity'
+import AddOnList from '../components/UI/AddOn/AddOnList'
 
 export default function FoodDescription() {
   return (
     <SafeAreaView style={styles.root}>
+        <View style={{marginTop:20, marginHorizontal:20,}}>
 
+        
         <ImageBackground 
         style={styles.foodImage}
         imageStyle={{borderRadius:10}}
@@ -41,6 +44,26 @@ export default function FoodDescription() {
         <Text style={[ textStyles.h5,styles.descriptionText  ]}>Brown the beef better. Lean ground beef  I like to use 85% lean angus. Garlic – use fresh  chopped. Spices – chili powder, cumin, onion powder.</Text>
         
 
+        <AddOnList/>
+
+
+        <View style={styles.viewBtn}>
+  <TouchableOpacity style={styles.btn} onPress={() => {}}>
+    <View style={styles.cartContainer}>
+    <Image
+    source={require('../assets/icons/cart_icon.png')}
+    style={styles.cartIcon}/>
+    </View>
+    <Text style={[textStyles.h6,styles.txtBtn]}>ADD TO CART</Text>
+  </TouchableOpacity>
+ </View>
+
+
+
+        </View>
+
+
+
     </SafeAreaView>
   )
 }
@@ -49,7 +72,10 @@ export default function FoodDescription() {
 const styles = StyleSheet.create({
 
     root:{
-        margin:20,
+      
+        backgroundColor:"#ffffff",
+        flex:1,
+
         
 
 
@@ -79,6 +105,45 @@ const styles = StyleSheet.create({
         justifyContent:'center',
         fontWeight:'400'
     },
+    viewBtn: {
+        position: 'absolute',
+        bottom: 0,
+        height: 0,
+        width: widthPercentageToDP('85%'),
+        backgroundColor: 'white',
+        justifyContent: 'center',
+        alignItems: 'center',
+      },
+      btn: {
+       
+        height:55,
+        width:160,
+        backgroundColor: Colors.primary,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 28,
+        flexDirection:'row'
+      },
+      txtBtn: {
+        textAlign: 'center',
+        color: 'white',
+      },
+      cartContainer:{
+        width:40,
+        height:40,
+        marginRight:5,
+        borderRadius:50,
+        justifyContent:'center',
+        alignItems:'center',
+        backgroundColor:'#ffffff',
+      },
+
+      cartIcon:{
+        width:16,
+        height:16,
+       
+
+      }
 
 
 
