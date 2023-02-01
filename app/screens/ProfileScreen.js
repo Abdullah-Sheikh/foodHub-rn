@@ -2,6 +2,7 @@ import { View, Text, StyleSheet, ImageBackground, Image } from 'react-native'
 import React from 'react'
 import Colors from '../utils/colors';
 import textStyles from '../utils/textStyles';
+import EditForm from '../components/EditProfile/EditForm';
 
 export default function ProfileScreen() {
   return (
@@ -21,6 +22,8 @@ export default function ProfileScreen() {
 
         <Text style={[ textStyles.h4,styles.heading]}>Eljad Eendaz</Text>
         <Text style={[textStyles.h6, styles.subHeading]}>Edit Profile</Text>
+
+        <EditForm credientialsInvalid={null} onSubmit={null}/>
     
     </View>
   )
