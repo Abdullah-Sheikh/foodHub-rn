@@ -1,5 +1,7 @@
-import { View, Text } from 'react-native'
+import { View, Text, StyleSheet } from 'react-native'
 import React, { useState } from 'react'
+import Input from '../UI/Input';
+import PrimaryBtn from '../UI/PrimaryBtn';
 
 export default function EditForm({credientialsInvalid , onSubmit}) {
 
@@ -44,13 +46,13 @@ export default function EditForm({credientialsInvalid , onSubmit}) {
     
 
   return (
-    <View>
+    <View style={styles.root}>
      <Input 
-      label="Full-Name" 
+      label="Full Name" 
       placeholder="Your full Name"
       onUpdateValue={updateInputValueHandler.bind(this, 'fullName')}
           value={enteredFullName}
-          keyboardType="text"
+          keyboardType="default"
           isInvalid={fullNameIsInvalid}/>
 
 <Input 
@@ -66,11 +68,22 @@ export default function EditForm({credientialsInvalid , onSubmit}) {
       placeholder="Your phone"
       onUpdateValue={updateInputValueHandler.bind(this, 'phone')}
           value={enteredPhone}
-          keyboardType="number"
+          keyboardType="number-pad"
           isInvalid={phoneIsInvalid}/>
 
+
+    <PrimaryBtn onPress={submitHandler} label="Update"/>
     </View>
 
     
   )
 }
+
+
+const styles = StyleSheet.create({
+
+    root:{
+        marginVertical:25,
+    }
+    
+})

@@ -4,12 +4,12 @@ import Icon from 'react-native-vector-icons/AntDesign'
 import { useNavigation } from '@react-navigation/native';
 
 
-export default function BackBtn() {
+export default function BackBtn({style}) {
   const navigation = useNavigation();
 
   return (
     <Pressable onPress={() => navigation.goBack(null)}>
-    <View  style={styles.container} >
+    <View  style={[styles.container , style]} >
         <Icon name="left" size={16} color="#000" />
     </View>
     </Pressable>

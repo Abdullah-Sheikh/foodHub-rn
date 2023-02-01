@@ -1,19 +1,55 @@
-import { View, Text, StyleSheet, ImageBackground, Image } from 'react-native'
-import React from 'react'
+import { View, Text, StyleSheet, ImageBackground, Image, Platform } from 'react-native'
+import React  , {useState} from 'react'
 import Colors from '../utils/colors';
 import textStyles from '../utils/textStyles';
 import EditForm from '../components/EditProfile/EditForm';
+import { ScrollView } from 'react-native-gesture-handler';
+import BackBtn from '../components/UI/BackBtn';
 
 export default function ProfileScreen() {
+
+
+    const [credientialsInvalid , setCredientialsIsInvalid] = useState({
+
+        fullNmae: false,
+        email: false,
+        phone: false,
+      });
+    
+    function submitHandler (credientials){
+      let {fullName, email , phone} = credientials;
+      
+      fullName = fullName.trim ();
+      email = email.trim ();
+      phone = phone.trim();
+
+      const fullNameIsValid = fullNameIsValid.length >5;
+      const emailIsValid = email.includes('@');
+      const phoneIsValid = phone.length > 10;
+    
+      if(!emailIsValid  || ! phoneIsValid || ! fullNameIsValid) 
+      {
+        Alert.alert('Invalid input' , 'Please check your entered credientials. ');
+        setCredientialsIsInvalid({
+    
+        });
+        return;
+      }
+    
+     
+    
+    }
+    
   return (
     <View style={styles.root}>
         <ImageBackground 
         style={styles.headerContainer}
         source={require('../assets/images/profileHeader.png')}>
 
+           <BackBtn style={styles.backBtn}/>
             <View style={styles.profileImgContainer}>
             <ImageBackground 
-            imageStyle={{ borderRadius:50,}}
+            imageStyle={{ borderRadius:50,  }}
             style={styles.profileImg}
             source={require('../assets/images/profileImg.png')}/>
             </View>
@@ -23,7 +59,11 @@ export default function ProfileScreen() {
         <Text style={[ textStyles.h4,styles.heading]}>Eljad Eendaz</Text>
         <Text style={[textStyles.h6, styles.subHeading]}>Edit Profile</Text>
 
-        <EditForm credientialsInvalid={null} onSubmit={null}/>
+        <ScrollView automaticallyAdjustKeyboardInsets={true}>
+
+        <EditForm credientialsInvalid={credientialsInvalid} onSubmit={submitHandler}/>
+
+        </ScrollView>
     
     </View>
   )
@@ -40,9 +80,7 @@ const styles = StyleSheet.create({
 
     headerContainer:{
         height:285,
-        alignContent:'center',
-       
-        alignItems:'center',
+        
         flexDirection:'column',
 
 
@@ -53,7 +91,8 @@ const styles = StyleSheet.create({
         width:100,
         height:100,
         borderRadius:50,
-        marginTop:135,
+        marginTop: Platform.OS ==="ios" ? 60 : 90 ,
+        alignSelf:'center',
         justifyContent:'center',
         alignContent:'center',
         alignItems:'center',
@@ -80,7 +119,14 @@ const styles = StyleSheet.create({
         textAlign:'center',
         color:Colors.gray80,
         marginTop:4,
+        
     },
+    backBtn:{
+        marginTop:Platform.OS ==="ios" ? 45 : 10,
+        marginHorizontal:20,
+
+
+    }
 
 
 });
