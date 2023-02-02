@@ -3,15 +3,16 @@ import React from 'react'
 import textStyles from '../../utils/textStyles'
 import Colors from '../../utils/colors'
 
-export default function ChargesAttribute({title , price}) {
+export default function ChargesAttribute({title , price , items}) {
   return (
     <>
     <View style={styles.container}>
-        <Text style={[textStyles.h4, styles.title]}>{title}</Text>
+        <Text style={[textStyles.h4, styles.title]}>{title}  { items ? <Text style={[textStyles.h6 ,styles.curreny]}>({items} items)</Text> :  null }</Text>
         <Text style={[textStyles.h4, styles.price]}>${price} <Text style={[textStyles.h6 ,styles.curreny]}>USD</Text></Text>
      
     </View>
-    <View style={styles.bottomBorder}/>
+
+    { !items ? <View style={styles.bottomBorder}/> : null}
     </>
   )
 }

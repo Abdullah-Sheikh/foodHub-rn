@@ -5,6 +5,7 @@ import CartItem from '../components/Cart/CartItem'
 import PromoCode from '../components/UI/PromoCode'
 import { heightPercentageToDP } from 'react-native-responsive-screen'
 import ChargesAttribute from '../components/UI/ChargesAttribute'
+import PrimaryBtn from '../components/UI/PrimaryBtn'
 
 export default function Cart() {
 
@@ -31,7 +32,21 @@ export default function Cart() {
 
       <PromoCode/>
 
+
+      <View style={{marginBottom:heightPercentageToDP("8%")}}>
+
+
       <ChargesAttribute title="SubTotal" price="27.30"/>
+      <ChargesAttribute title="Tax and Fees" price="5.30"/>
+      <ChargesAttribute title="Delivery" price="1.00"/>
+      <ChargesAttribute title="Total" price="33.60" items="2"/>
+
+      </View>
+
+
+      <PrimaryBtn label="Checkout"/>
+
+
 
 
     </SafeAreaView>
