@@ -2,6 +2,8 @@ import { View, Text, StyleSheet, SafeAreaView, FlatList } from 'react-native'
 import React from 'react'
 import Header from '../components/UI/Header'
 import CartItem from '../components/Cart/CartItem'
+import PromoCode from '../components/UI/PromoCode'
+import { heightPercentageToDP } from 'react-native-responsive-screen'
 
 export default function Cart() {
 
@@ -16,18 +18,18 @@ export default function Cart() {
       <Header label="cart"/>
 
       <FlatList
+      style={styles.list}
       data={[
         {key: '1',},
-        {key:'2'}
+        {key:'2'},
       ]}
       keyExtractor={item => item.key}
       renderItem={renderItem}
       />
 
 
+      <PromoCode/>
 
-    
-     
 
     </SafeAreaView>
   )
@@ -39,5 +41,9 @@ const styles = StyleSheet.create({
   root:{
     backgroundColor: '#ffffff',
     flex:1,
+  },
+  list:{
+    height:heightPercentageToDP("27.5%"),
+    flexGrow:0
   }
 })
