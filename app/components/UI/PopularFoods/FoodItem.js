@@ -121,7 +121,5 @@ subHeading:{
   fontWeight:'100',
 
 }
-
-
     
 })
