@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
 
     root:{
         marginTop:5,
-        marginBottom:100
+        marginBottom:75
 
     },
 

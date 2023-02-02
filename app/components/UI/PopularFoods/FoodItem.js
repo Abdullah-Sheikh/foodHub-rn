@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, ImageBackground } from 'react-native'
+import { View, Text, StyleSheet, ImageBackground, TouchableOpacity } from 'react-native'
 import React from 'react'
 import Colors from '../../../utils/colors'
 import Ionicons from 'react-native-vector-icons/Ionicons'
@@ -6,11 +6,15 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import textStyles from '../../../utils/textStyles'
 import Icon5 from 'react-native-vector-icons/FontAwesome'
 import WishListBtn from '../WishListBtn'
+import { useNavigation } from '@react-navigation/native'
 
 
 export default function FoodItem() {
+
+
+  const navigation = useNavigation();
   return (
-    <View style={styles.container}>
+    <TouchableOpacity  onPress={() => { navigation.navigate('FoodDescription')} }style={styles.container}>
       <ImageBackground
       source={require('../../../assets/images/SalmonSalad.png')}
       style={styles.imageContainer}
@@ -36,7 +40,7 @@ export default function FoodItem() {
       <Text style={[textStyles.h6, styles.heading]}>Salmon Salad</Text>
       <Text style={[textStyles.h6, styles.subHeading]}>Baked salmon fish</Text>
      
-    </View>
+    </TouchableOpacity>
   )
 }
 
