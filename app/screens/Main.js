@@ -8,6 +8,7 @@ import IconInput from '../components/UI/IconInput';
 import CategoryList from '../components/UI/FoodCategory/CategoryList';
 import RestaurantsList from '../components/UI/FeaturedRestaurants/RestaurantsList';
 import { ScrollView } from 'react-native-gesture-handler';
+import FoodList from '../components/UI/PopularFoods/FoodList';
 
 export default function Main({navigation}) {
   function OpenDrawer (){
@@ -61,6 +62,8 @@ export default function Main({navigation}) {
       <CategoryList/>
 
       <RestaurantsList/>
+
+      <FoodList/>
 
 
       </ScrollView>

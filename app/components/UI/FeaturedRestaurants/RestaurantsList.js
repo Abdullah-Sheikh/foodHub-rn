@@ -48,7 +48,7 @@ export default function RestaurantsList() {
 const styles = StyleSheet.create({
     root:{
         marginTop:20,
-        marginBottom:100,
+        marginBottom:10,
     },
     headingConatainer:{
         flexDirection:'row',
