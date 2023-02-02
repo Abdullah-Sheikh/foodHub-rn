@@ -4,11 +4,11 @@ import BackBtn from './BackBtn'
 import textStyles from '../../utils/textStyles'
 import { widthPercentageToDP } from 'react-native-responsive-screen'
 
-export default function Header({image}) {
+export default function Header({image , label}) {
   return (
     <View style={styles.root}>
         <BackBtn/>
-        <Text style={[ textStyles.h4,styles.text]}>add new address</Text>
+        <Text style={[ textStyles.h4,styles.text]}>{label}</Text>
         { image ?  <Image
         style={styles.image}
         source={require('../../assets/images/profileImg.png')}/>
@@ -30,7 +30,8 @@ const styles = StyleSheet.create({
     },
     text:{
     
-      marginHorizontal:widthPercentageToDP("16%"),
+      width:widthPercentageToDP("65%"),
+      textAlign:'center'
 
     },
     image:{

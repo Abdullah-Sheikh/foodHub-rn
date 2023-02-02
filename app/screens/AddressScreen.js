@@ -10,7 +10,7 @@ export default function AddressScreen() {
     <View style={styles.root}>
         <SafeAreaView>
             
-            <Header/>
+            <Header label="add new Address"/>
             <ScrollView>
 
             <Input 
