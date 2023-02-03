@@ -3,6 +3,7 @@ import React from 'react'
 import Colors from '../utils/colors';
 import Header from '../components/UI/Header';
 import ComponentSelectionBtn from '../components/UI/ComponentSelectionBtn';
+import List from '../components/Order/Upcoming/List';
 
 export default function MyOrders() {
   return (
@@ -11,6 +12,8 @@ export default function MyOrders() {
      <Header label="My Orders" image={true}/>
 
      <ComponentSelectionBtn  label1="Upcoming" label2="History"/>
+
+     <List/>
     </SafeAreaView>
   )
 }
@@ -21,7 +24,6 @@ const styles = StyleSheet.create({
        
         backgroundColor: Colors.white,
         flex:1,
-
 
     }
 
