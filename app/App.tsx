@@ -17,6 +17,7 @@ import DrawerNavigation from './Navigators/DrawerNavigation';
 import FoodDescription from './screens/FoodDescription';
 import ProfileScreen from './screens/ProfileScreen';
 import AddressScreen from './screens/AddressScreen';
+import MyOrders from './screens/MyOrders';
 
 const Stack = createNativeStackNavigator();
 
@@ -35,7 +36,7 @@ const App = () => {
     screenOptions={{
       headerShown: false
     }}>
-     
+       <Stack.Screen name='Orders' component={MyOrders}/>
        <Stack.Screen name='Drawer' component={DrawerNavigation}/>
        <Stack.Screen  name="OnBoarding" component={OnBoarding}/>
        <Stack.Screen  name="SignUp" component={SignUpScreen}/>

@@ -21,6 +21,8 @@ const Colors = {
     gray20: '#EBEBEB',
     
 
+    white: '#ffffff'
+
 
 }
 
