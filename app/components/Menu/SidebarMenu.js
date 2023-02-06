@@ -24,7 +24,7 @@ export default function SidebarMenu( {props}) {
            
           
 
-            <SideBarItem label="My Orders" image={require("../../assets/icons/sidebarIcons/orderIcon.png")}/>
+            <SideBarItem label="My Orders"  page="Orders" image={require("../../assets/icons/sidebarIcons/orderIcon.png")}/>
             <SideBarItem page="Profile" label="My Profile" image={require("../../assets/icons/sidebarIcons/profileIcon.png")}/>
             <SideBarItem page="Address" label="Delivery Address" image={require("../../assets/icons/sidebarIcons/locationIcon.png")}/>
             <SideBarItem label="Payment Methods" image={require("../../assets/icons/sidebarIcons/paymentIcon.png")}/>
