@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@react-native-community/clipboard": "^1.5.1",
+    "@react-native-firebase/app": "^17.0.0",
+    "@react-native-firebase/auth": "^17.0.0",
     "@react-navigation/bottom-tabs": "^6.5.3",
     "@react-navigation/drawer": "^6.5.7",
     "@react-navigation/native": "^6.1.2",
