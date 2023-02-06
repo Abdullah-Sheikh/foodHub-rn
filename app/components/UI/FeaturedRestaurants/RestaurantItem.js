@@ -7,22 +7,21 @@ import RestaurantProperty from './RestaurantProperty';
 import Category from './Category';
 import { widthPercentageToDP } from 'react-native-responsive-screen';
 
-export default function RestaurantItem() {
+export default function RestaurantItem({name , image , deliveryTime ,category ,rating}) {
   return (
     <View style={styles.root} >
         <ImageBackground
-        source={require('../../../assets/images/foodPic1.png')}
+        source={image}
         style={styles.image}
         imageStyle={{borderTopLeftRadius:15,
             borderTopRightRadius:15,}}>
 
         <View style={styles.imageConatiner}>
             <View style={styles.ratingContainer}>
-            <Text style={[textStyles.h, styles.ratingText]}>4.5 <Ionicons name="md-star" size={12} color="#FFC529"/>
+            <Text style={[textStyles.h, styles.ratingText]}>{rating} <Ionicons name="md-star" size={12} color="#FFC529"/>
             <Text style={{color:"#9796A1" ,fontSize:9 , textAlign:'center' ,textAlignVertical:'center'}}> (25+)</Text>
             </Text>
 
-            
             </View>
 
             <View style={[styles.wishListContainer  , {textAlign:'right', marginLeft:150}]}>
@@ -37,18 +36,19 @@ export default function RestaurantItem() {
 
         <View style={styles.innerContainer}>
 
-        <Text style={textStyles.h4}>McDonald’s <Ionicons name="md-checkmark-circle" size={16} color="#029094"/>  </Text>
+        <Text style={textStyles.h4}>{name} <Ionicons name="md-checkmark-circle" size={16} color="#029094"/>  </Text>
 
         <View style={styles.propertiesContainer}>
         <RestaurantProperty image={require('../../../assets/icons/delivery_icon.png')} text="Free delivery"/>
-        <RestaurantProperty image={require('../../../assets/icons/time_icon.png')} text="10-15 mins"/>
+        <RestaurantProperty image={require('../../../assets/icons/time_icon.png')} text={`${deliveryTime} mins`}/>
         
         </View>
 
         <View style={styles.categoryContainer}>
-            <Category text="BURGER"/>
-            <Category text="CHICKEN"/>
-            <Category text="FAST FOOD"/>
+        {category.map(title => {
+        return <Category key={title} text={title}/>
+      })}
+            
         </View>
 
         </View>
@@ -60,7 +60,6 @@ export default function RestaurantItem() {
 const styles = StyleSheet.create({
 
     root:{
-        
         height:230,
         width:270,
         borderRadius:15,

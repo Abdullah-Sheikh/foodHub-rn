@@ -38,9 +38,10 @@ const App = () => {
       headerShown: false
     }}>
       
-      <Stack.Screen name='Favorites' component={FavoritesScreen}/>
-       <Stack.Screen name='Drawer' component={DrawerNavigation}/>
-       <Stack.Screen  name="OnBoarding" component={OnBoarding}/>
+      <Stack.Screen name='Drawer' component={DrawerNavigation}/>
+      <Stack.Screen  name="OnBoarding" component={OnBoarding}/>
+      
+      
        <Stack.Screen  name="SignUp" component={SignUpScreen}/>
        <Stack.Screen  name="Login" component={LoginScreen}/>
        <Stack.Screen  name="ForgetPassword" component={ForgetPassword}/>

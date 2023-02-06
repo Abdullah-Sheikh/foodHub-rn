@@ -113,7 +113,6 @@ const styles = StyleSheet.create({
         marginTop:-45,
         textAlign:'center',
         fontWeight:'700',
-
     },
     subHeading:{
         textAlign:'center',

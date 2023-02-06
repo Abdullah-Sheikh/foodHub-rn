@@ -8,6 +8,7 @@ import Location from '../screens/Location';
 import Cart from '../screens/Cart';
 import Favorites from '../screens/Favorites';
 import Notification from '../screens/Notification';
+import FavoritesScreen from '../screens/FavoritesScreen';
 
 
 function HomeScreen() {
@@ -69,7 +70,7 @@ export default function BottomNavigator() {
         <Tab.Screen name="Main" component={Main} />
         <Tab.Screen name="Location" component={Location} />
         <Tab.Screen name="Cart" component={Cart} />
-        <Tab.Screen name="Favorites" component={Favorites} />
+        <Tab.Screen name="Favorites" component={FavoritesScreen} />
         <Tab.Screen name="Notification" component={Notification} />
 
       </Tab.Navigator>

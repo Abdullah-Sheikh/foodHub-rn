@@ -9,27 +9,27 @@ import WishListBtn from '../WishListBtn'
 import { useNavigation } from '@react-navigation/native'
 
 
-export default function FoodItem() {
+export default function FoodItem({price ,name , image , detail,rating }) {
 
 
   const navigation = useNavigation();
   return (
     <TouchableOpacity  onPress={() => { navigation.navigate('FoodDescription')} }style={styles.container}>
       <ImageBackground
-      source={require('../../../assets/images/SalmonSalad.png')}
+      source={image}
       style={styles.imageContainer}
       imageStyle={{borderRadius:15}}>
         <View  style={{flexDirection:'row'}}>
 
         <View style={styles.priceContainer}>
-        <Text style={[textStyles.h, styles.priceText]}><Icon5 name="dollar" size={8} color={Colors.primary}/>5.50</Text>
+        <Text style={[textStyles.h, styles.priceText]}><Icon5 name="dollar" size={8} color={Colors.primary}/>{price}</Text>
        
         </View>
         <WishListBtn style={styles.wishListBtn}/>
         </View>
 
         <View style={styles.ratingContainer}>
-            <Text style={[textStyles.h, styles.ratingText]}>4.5 <Ionicons name="md-star" size={12} color="#FFC529"/>
+            <Text style={[textStyles.h, styles.ratingText]}>{rating} <Ionicons name="md-star" size={12} color="#FFC529"/>
             <Text style={{color:"#9796A1" ,fontSize:9 , textAlign:'center' ,textAlignVertical:'center'}}> (25+)</Text>
             </Text>
 
@@ -37,8 +37,8 @@ export default function FoodItem() {
 
       </ImageBackground>
 
-      <Text style={[textStyles.h6, styles.heading]}>Salmon Salad</Text>
-      <Text style={[textStyles.h6, styles.subHeading]}>Baked salmon fish</Text>
+      <Text style={[textStyles.h6, styles.heading]}>{name}</Text>
+      <Text style={[textStyles.h6, styles.subHeading]}>{detail}</Text>
      
     </TouchableOpacity>
   )
