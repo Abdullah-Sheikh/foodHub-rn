@@ -37,9 +37,9 @@ export default function Item() {
 
         </View>
 
-        <View style={styles.estimatedTimeContainer}>
+        <View style={[styles.estimatedTimeContainer , {height:45}]}>
 
-        <Text style={ styles.estimatedTime}>25 <Text style={textStyles.h6}>min</Text></Text>
+        <Text style={ styles.estimatedTime}>25<Text style={{fontSize:15}}>min</Text></Text>
 
         <Text style={[textStyles.h5 , styles.currentStatus]}>Food on the way</Text>
 
@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
         shadowColor: Colors.gray80,
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.25,
-        shadowRadius: 12,
+        shadowRadius: 1,
     },
     image:{
         width:45,
@@ -146,6 +146,7 @@ const styles = StyleSheet.create({
     estimatedTime:{
         flex:1,
         fontSize:40,
+        color:'#000000',
         lineHeight:40,
         fontWeight:'700',
         fontFamily:'SofiaPro-Regular',

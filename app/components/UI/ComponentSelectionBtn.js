@@ -2,8 +2,9 @@ import { View, Text, StyleSheet, Pressable, Alert, TouchableOpacity } from 'reac
 import React, { useState } from 'react'
 import Colors from '../../utils/colors'
 import textStyles from '../../utils/textStyles';
+import { panHandlerName } from 'react-native-gesture-handler/lib/typescript/handlers/PanGestureHandler';
 
-export default function ComponentSelectionBtn({label1 , label2}) {
+export default function ComponentSelectionBtn({label1 , label2 , handler}) {
 
     const [first , setFirst] = useState(true);
     const [second , setSecond] = useState(false);
@@ -12,6 +13,8 @@ export default function ComponentSelectionBtn({label1 , label2}) {
 
         setFirst(false);
         setSecond(true);
+        handler();
+       
         
     }
 
@@ -19,6 +22,7 @@ export default function ComponentSelectionBtn({label1 , label2}) {
         
     setSecond(false);
     setFirst(true);
+    handler();
     }
 
    
