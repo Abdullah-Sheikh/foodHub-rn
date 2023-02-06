@@ -1,9 +1,8 @@
-package com.app;
+package com.foodhubapp;
 
 import android.os.Bundle;
-import android.view.Window;
-import android.view.WindowManager;
 
+import com.app.R;
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint;
@@ -20,7 +19,7 @@ protected void onCreate(Bundle savedInstanceState) {
 
 
 
-  SplashScreen.show(this ,R.style.MyThemes ,false);  // here
+  SplashScreen.show(this , R.style.MyThemes ,false);  // here
   super.onCreate(null);
 }
 

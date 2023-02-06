@@ -1,10 +1,8 @@
-package com.app;
+package com.foodhubapp;
 
 import android.app.Application;
-import android.view.Window;
-import android.view.WindowManager;
 
-import com.facebook.react.PackageList;
+import com.app.BuildConfig;
 import com.facebook.react.ReactApplication;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -15,11 +13,9 @@ import com.facebook.soloader.SoLoader;
 import com.swmansion.rnscreens.RNScreensPackage;
 import com.th3rdwave.safeareacontext.SafeAreaContextPackage;
 
-import org.devio.rn.splashscreen.SplashScreen;
-
 import java.util.Arrays;
 import java.util.List;
-import org.devio.rn.splashscreen.SplashScreen; // Import this.
+
 import org.devio.rn.splashscreen.SplashScreenReactPackage;
 
 import com.swmansion.reanimated.ReanimatedPackage;

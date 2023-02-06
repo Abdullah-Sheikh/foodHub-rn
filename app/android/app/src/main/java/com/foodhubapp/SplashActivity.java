@@ -1,4 +1,4 @@
-package com.app;
+package com.foodhubapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
