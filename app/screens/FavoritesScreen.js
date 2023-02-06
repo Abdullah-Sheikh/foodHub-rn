@@ -22,7 +22,12 @@ export default function FavoritesScreen() {
       <Header image={true}  label="Favorites"/>
       <ComponentSelectionBtn  label1="FoodItems" label2="Resturents"  handler={handler}/>
 
-      <FoodItemList/>
+
+  { 
+  active ? 
+  <FoodItemList/>
+   : null}
+     
     </SafeAreaView>
   )
 }
