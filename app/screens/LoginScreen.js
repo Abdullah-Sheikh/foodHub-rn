@@ -1,5 +1,6 @@
 import { View, Text, StyleSheet, Image, Alert, ScrollView } from 'react-native'
 import textStyles from '../utils/textStyles'
+import auth from '@react-native-firebase/auth';
 
 import React, { useState } from 'react'
 import { heightPercentageToDP  as hp, widthPercentageToDP} from 'react-native-responsive-screen';
@@ -15,6 +16,42 @@ const LoginScreen = ({navigation}) => {
     email: false,
     password: false,
   });
+
+
+  const login =  async (email , password) =>{
+
+    try {
+     
+      const {user} = await auth().signInWithEmailAndPassword(email, password)
+      if(!user.emailVerified){
+        Alert.alert("Email not Verified!" ,'Verify your email before Login')
+        return false;
+      }
+      Alert.alert("Login Successfully!" ,'Welcome to FoodHub')
+      navigation.navigate("Drawer");
+      return true
+
+    } catch (error) {
+      if (error.code === 'auth/email-already-in-use') {
+        Alert.alert("Error" ,"That email address is already in use!")
+       
+      }
+  
+      else if (error.code === 'auth/invalid-email') {
+        Alert.alert("Error" ,"That email address is invalid!")
+       
+      }
+      else{
+        Alert.alert("Error" ,`${error}`)
+      }
+  
+    
+      return false
+    }
+
+
+
+  }
 
 function submitHandler (credientials){
   let {email , password} = credientials;
@@ -36,7 +73,7 @@ function submitHandler (credientials){
     return;
   }
 
-  navigation.navigate("Drawer");
+  login(email, password)
 
 }
 
