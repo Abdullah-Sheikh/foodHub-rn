@@ -1,4 +1,5 @@
 import { View, Text, ScrollView, StyleSheet, Alert } from 'react-native'
+import auth from '@react-native-firebase/auth';
 import React  , {useState} from 'react'
 import AuthHeader from '../components/UI/AuthHeader'
 import textStyles from '../utils/textStyles';
@@ -16,6 +17,40 @@ export default function SignUpScreen({navigation}) {
         password: false,
         fullName : false
       });
+
+
+
+      const signUp =  async (email , password) =>{
+
+        try {
+         
+          const {user} = await auth().createUserWithEmailAndPassword(email, password)
+          await user.sendEmailVerification()
+          Alert.alert("SignUp Successfully!" ,'Verification link sent to your email address')
+          navigation.navigate("Login");
+          return true
+
+        } catch (error) {
+          if (error.code === 'auth/email-already-in-use') {
+            Alert.alert("Error" ,"That email address is already in use!")
+           
+          }
+      
+          else if (error.code === 'auth/invalid-email') {
+            Alert.alert("Error" ,"That email address is invalid!")
+           
+          }
+          else{
+            Alert.alert("Error" ,`${error}`)
+          }
+      
+        
+          return false
+        }
+
+
+
+      }
     
     function submitHandler (credientials){
       let {fullName , email , password} = credientials;
@@ -40,7 +75,12 @@ export default function SignUpScreen({navigation}) {
         return;
       }
 
-      navigation.navigate("Registration");
+     
+    
+      signUp(email,password);
+
+      
+      
     
     }
   return (

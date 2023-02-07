@@ -22,6 +22,12 @@ import com.swmansion.reanimated.ReanimatedPackage;
 import com.swmansion.gesturehandler.RNGestureHandlerPackage;
 
 
+import io.invertase.firebase.app.ReactNativeFirebaseAppPackage;
+import io.invertase.firebase.auth.ReactNativeFirebaseAuthPackage;
+import io.invertase.firebase.app.ReactNativeFirebaseApp;
+
+
+
 
 
 public class MainApplication extends Application implements ReactApplication {
@@ -41,7 +47,9 @@ public class MainApplication extends Application implements ReactApplication {
                       new RNScreensPackage(),
                       new SafeAreaContextPackage(),
                       new ReanimatedPackage(),
-                      new RNGestureHandlerPackage()
+                      new RNGestureHandlerPackage(),
+                      new ReactNativeFirebaseAuthPackage() ,
+                      new ReactNativeFirebaseAppPackage()
                        //here
               );
           }

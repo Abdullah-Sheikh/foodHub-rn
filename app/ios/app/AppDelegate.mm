@@ -2,6 +2,7 @@
 #import "RNSplashScreen.h"
 
 #import <React/RCTBundleURLProvider.h>
+#import <Firebase.h>
 
 @implementation AppDelegate
 
@@ -12,6 +13,7 @@
   self.moduleName = @"app";
   
   [super application:application didFinishLaunchingWithOptions:launchOptions];
+  [FIRApp configure];
   [RNSplashScreen show ];
   
   
