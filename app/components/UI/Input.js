@@ -30,9 +30,6 @@ const Input = ( {
         onFocus={() => setTextInputFocused(true)}
         onSubmitEditing={() => setTextInputFocused(false)}
         onEndEditing={() => setTextInputFocused(false)}
-        
-        
-    
         />
 
 
