@@ -8,8 +8,17 @@ import { ScrollView } from 'react-native-gesture-handler';
 import PrimaryBtn from '../UI/PrimaryBtn';
 import Colors from '../../utils/colors';
 import { widthPercentageToDP } from 'react-native-responsive-screen';
+import auth from '@react-native-firebase/auth';
 
 export default function SidebarMenu( {props}) {
+
+    function logout () {
+
+   auth()
+   .signOut()
+   .then(() => console.log('User signed out!'));
+
+    }
   return (
     <View style={styles.root}>
 
@@ -33,7 +42,7 @@ export default function SidebarMenu( {props}) {
             <SideBarItem label="Helps & FAQs" image={require("../../assets/icons/sidebarIcons/helpIcon.png")}/>
 
 
-            <Pressable    style={ ({pressed}) => [styles.outerContainer ,pressed && styles.pressed]} >
+            <Pressable  onPress={logout}  style={ ({pressed}) => [styles.outerContainer ,pressed && styles.pressed]} >
         <View style={{flexDirection:'row' ,alignContent:'center' ,alignItems:'center'}}>
             <Image
             source={require('../../assets/icons/logoutIcon.png')}
@@ -42,15 +51,7 @@ export default function SidebarMenu( {props}) {
 
         </View>
     </Pressable>
-
-
-            
-
             </ScrollView>
-
-          
-
-
         </SafeAreaView>
      
     </View>
@@ -66,7 +67,6 @@ const styles = StyleSheet.create({
         marginTop:Platform.OS ==='ios' ? 50 : 20,
 
     },
-
     headerImg:{
         borderRadius:65,
         height:130,
@@ -108,7 +108,4 @@ const styles = StyleSheet.create({
         height:22,
     }
     
-    
-
-
 });
