@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Image } from 'react-native'
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 import BackBtn from './BackBtn'
 import textStyles from '../../utils/textStyles'
@@ -9,9 +9,10 @@ export default function Header({image , label}) {
     <View style={styles.root}>
         <BackBtn/>
         <Text style={[ textStyles.h4,styles.text]}>{label}</Text>
-        { image ?  <Image
+        { image ?  <TouchableOpacity><Image
         style={styles.image}
         source={require('../../assets/images/profileImg.png')}/>
+        </TouchableOpacity>
         : null
        }
      

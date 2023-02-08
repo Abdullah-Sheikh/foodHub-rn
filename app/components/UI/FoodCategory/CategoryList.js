@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import CategoryItem from './CategoryItem'
 import { FlatList } from 'react-native-gesture-handler'
 
-export default function CategoryList() {
+export default function CategoryList({category}) {
 
   const [ selected , setSelected] = useState('1');
 
@@ -16,6 +16,7 @@ export default function CategoryList() {
       <CategoryItem
      
       onPress={ () => {setSelected(item.key)
+        category(item.name);
       }}
       item={item}
       image={item.image}

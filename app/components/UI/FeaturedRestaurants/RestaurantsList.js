@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet } from 'react-native'
-import React from 'react'
+import React, { useContext } from 'react'
 import textStyles from '../../../utils/textStyles';
 import Colors from '../../../utils/colors';
 import { widthPercentageToDP } from 'react-native-responsive-screen';
@@ -7,11 +7,26 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import RestaurantItem from './RestaurantItem';
 import { FlatList } from 'react-native-gesture-handler';
 import { DrawerItem } from '@react-navigation/drawer';
+import { DataContext } from '../../../Global/data-context';
 
-export default function RestaurantsList() {
+export default function RestaurantsList({category}) {
+
+
+    
+
+    const restaurants = useContext(DataContext);
 
     const renderItem = ({item}) =>{
+
+        const string = category.toUpperCase();
+
+        
+
+        const categoryCheck =  item.category.includes(string);
         return(
+            <>
+            { categoryCheck ? 
+               
         <RestaurantItem 
         name={item.name} 
         image={item.image} 
@@ -19,6 +34,12 @@ export default function RestaurantsList() {
         category={item.category} 
         rating={item.rating}
          />
+       
+          
+         : <></> }
+
+
+         </>
         )
     }
   return (
@@ -29,20 +50,10 @@ export default function RestaurantsList() {
         <Text style={[textStyles.h4 , styles.heading]}>Featured Restaurants</Text>
         <Text style={[textStyles.h5 , styles.viewText]}>View All <Ionicons name="arrow-forward" size={15} color={Colors.primary} /></Text>
         </View>
+       
 
         <FlatList
-        data={[
-            {key: '1' ,name:`McDonald's`,image: require('../../../assets/images/Mcdonald.jpg'  ) , deiveryTime:"10-15" ,category:['FASTFOOD' , 'CHICKEN' , 'BURGER'] , rating:'4.6'}  ,
-            {key: '2' ,name:`Dunkin Donut's`,image: require('../../../assets/images/dunkinDonuts.jpg'  ) , deiveryTime:"15-20" ,category:['DONUT' , 'BAKESHOP' ] , rating:'4.8'}  ,
-            {key: '3' ,name:`Pizza Hut`,image: require('../../../assets/images/PizzaHut.png'  ) , deiveryTime:"15-20" ,category:['PIZZA' , 'CHICKEN' , 'FASTFOOD' ] , rating:'4.7'}  ,
-            {key: '4' ,name:`Bundu Khan`,image: require('../../../assets/images/bunduKhan.jpg'  ) , deiveryTime:"30-45" ,category:['ASIAN' , 'CHICKEN' ] , rating:'4.3'}  ,
-            {key: '5' ,name:`Tao Pan`,image: require('../../../assets/images/taoPan.jpg'  ) , deiveryTime:"25-35" ,category:['MEXICAN' , 'CHICKEN' ] , rating:'4.9'}  ,
-
-
-
-            
-            
-          ]}
+        data={restaurants}
         horizontal
         keyExtractor={item => item.key}
         renderItem={renderItem}

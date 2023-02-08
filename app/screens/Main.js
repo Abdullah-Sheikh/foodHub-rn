@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet , Platform, SafeAreaView, Image, Pressable } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import Colors from '../utils/colors';
 import textStyles from '../utils/textStyles';
 import Ionicons from 'react-native-vector-icons/Ionicons'
@@ -11,9 +11,17 @@ import { ScrollView } from 'react-native-gesture-handler';
 import FoodList from '../components/UI/PopularFoods/FoodList';
 
 export default function Main({navigation}) {
+
+  const [category , setCategory] = useState('burger');
   function OpenDrawer (){
 
     navigation.openDrawer();
+  }
+
+
+  function categoryHandler(category){
+    setCategory(category)
+
   }
 
   return (
@@ -59,9 +67,12 @@ export default function Main({navigation}) {
       </View>
       </View >
 
-      <CategoryList/>
+      <CategoryList category={categoryHandler}/>
 
-      <RestaurantsList/>
+      <Text>{category}</Text>
+
+
+      <RestaurantsList category={category}/>
 
       <FoodList/>
 
