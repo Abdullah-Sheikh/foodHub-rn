@@ -8,14 +8,38 @@ import AuthHeader from '../components/UI/AuthHeader';
 import Colors from '../utils/colors';
 import AuthForm from '../components/Auth/Login/AuthForm';
 import SocialLogin from '../components/UI/SocialLogin';
+import database from '@react-native-firebase/database';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 const LoginScreen = ({navigation}) => {
+
+  
 
   const [credientialsInvalid , setCredientialsIsInvalid] = useState({
 
     email: false,
     password: false,
   });
+
+  
+  const getData =(uid) => {
+
+    database().ref('/users/' + uid).on('value', (snapshot) => {
+      const userObj = snapshot.val();
+      try {
+         AsyncStorage.setItem('name' ,userObj.fullname );
+         AsyncStorage.setItem('email' ,userObj.email );
+         AsyncStorage.setItem('phone' ,userObj.phone );
+      } catch (error) {
+        throw new Error(error);
+      }
+     
+       
+      
+    });
+      
+  }
 
 
   const login =  async (email , password) =>{
@@ -27,8 +51,10 @@ const LoginScreen = ({navigation}) => {
         Alert.alert("Email not Verified!" ,'Verify your email before Login')
         return false;
       }
-      Alert.alert("Login Successfully!" ,'Welcome to FoodHub')
-      navigation.navigate("Drawer");
+
+      getData(user.uid);
+      Alert.alert("Login Successfully!" ,`Welcome to FoodHub`)
+    
       return true
 
     } catch (error) {

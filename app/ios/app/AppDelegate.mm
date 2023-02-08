@@ -14,6 +14,7 @@
   
   [super application:application didFinishLaunchingWithOptions:launchOptions];
   [FIRApp configure];
+  
   [RNSplashScreen show ];
   
   

@@ -7,6 +7,7 @@ import { heightPercentageToDP } from 'react-native-responsive-screen';
 import AuthForm from '../components/Auth/Signup/AuthForm';
 import SocialLogin from '../components/UI/SocialLogin';
 import Colors from '../utils/colors';
+import database from '@react-native-firebase/database';
 
 export default function SignUpScreen({navigation}) {
 
@@ -20,13 +21,22 @@ export default function SignUpScreen({navigation}) {
 
 
 
-      const signUp =  async (email , password) =>{
+      const signUp =  async (email , password ,fullName) =>{
 
         try {
          
           const {user} = await auth().createUserWithEmailAndPassword(email, password)
           await user.sendEmailVerification()
-          Alert.alert("SignUp Successfully!" ,'Verification link sent to your email address')
+          database()
+          .ref(`/users/${user.uid}`)
+          .set({
+                fullname: fullName ,
+                email: email,
+                phone:' '
+              })
+  .then(() => console.log('Data set.'));
+          
+          Alert.alert("SignUp Successfully!" ,`Verification link sent to your email address `)
           navigation.navigate("Login");
           return true
 
@@ -77,7 +87,7 @@ export default function SignUpScreen({navigation}) {
 
      
     
-      signUp(email,password);
+      signUp(email,password, fullName);
 
       
       

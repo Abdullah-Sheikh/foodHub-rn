@@ -1,12 +1,39 @@
-import { View, Text, StyleSheet, ImageBackground, Image, Platform } from 'react-native'
-import React  , {useState} from 'react'
+import { View, Text, StyleSheet, ImageBackground, Image, Platform, Alert } from 'react-native'
+import React  , {useEffect, useState} from 'react'
 import Colors from '../utils/colors';
 import textStyles from '../utils/textStyles';
 import EditForm from '../components/EditProfile/EditForm';
 import { ScrollView } from 'react-native-gesture-handler';
 import BackBtn from '../components/UI/BackBtn';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 export default function ProfileScreen() {
+
+
+  const [name , setName] = useState();
+
+  function updateData() {
+
+
+
+
+  }
+
+  useEffect(() => {
+    const setData =  async () => {
+
+        const name = await AsyncStorage.getItem('name'); 
+      
+        setName(name)
+      
+    
+    }
+
+    setData();
+
+  }, [name])
+  
 
 
     const [credientialsInvalid , setCredientialsIsInvalid] = useState({
@@ -18,6 +45,8 @@ export default function ProfileScreen() {
     
     function submitHandler (credientials){
       let {fullName, email , phone} = credientials;
+
+      
       
       fullName = fullName.trim ();
       email = email.trim ();
@@ -35,6 +64,8 @@ export default function ProfileScreen() {
         });
         return;
       }
+
+
     
      
     
@@ -56,7 +87,7 @@ export default function ProfileScreen() {
         </ImageBackground>
 
 
-        <Text style={[ textStyles.h4,styles.heading]}>Eljad Eendaz</Text>
+        <Text style={[ textStyles.h4,styles.heading]}>{name}</Text>
         <Text style={[textStyles.h6, styles.subHeading]}>Edit Profile</Text>
 
         <ScrollView automaticallyAdjustKeyboardInsets={true}>

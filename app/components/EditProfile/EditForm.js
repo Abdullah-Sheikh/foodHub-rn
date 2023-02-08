@@ -1,13 +1,35 @@
 import { View, Text, StyleSheet } from 'react-native'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Input from '../UI/Input';
 import PrimaryBtn from '../UI/PrimaryBtn';
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
 export default function EditForm({credientialsInvalid , onSubmit}) {
 
     const [enteredFullName , setEnteredFullName] = useState ();
     const [enteredEmail, setEnteredEmail ] = useState();
     const [enteredPhone , setEnteredPhone] = useState();
+
+   
+
+    useEffect(() => {
+        const  setData = async ()=> {
+            try {
+                const name = await AsyncStorage.getItem('name');
+                const email = await AsyncStorage.getItem('email');
+                const phone = await AsyncStorage.getItem('phone');
+                setEnteredFullName(name)
+                setEnteredEmail(email)
+                setEnteredPhone(phone)
+
+                
+              } catch (error) {
+               
+              }
+       
+        }
+        setData();
+    
+    },[enteredFullName ,enteredEmail]  );
 
 
     const   {
@@ -57,7 +79,7 @@ export default function EditForm({credientialsInvalid , onSubmit}) {
 
 <Input 
       label="E-mail" 
-      placeholder="Your phone"
+      placeholder="Your email"
       onUpdateValue={updateInputValueHandler.bind(this, 'email')}
           value={enteredEmail}
           keyboardType="email-address"

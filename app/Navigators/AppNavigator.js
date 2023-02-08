@@ -26,10 +26,13 @@ import FavoritesScreen from '../screens/FavoritesScreen';
 export default function AppNavigator() {
 
     const [initializing, setInitializing] = useState(true);
+    
     const [user, setUser] = useState();
+    const [verify , setVerify] = useState(false);
 
     const Stack = createNativeStackNavigator();
 
+    
     useEffect(() => {
 
    
@@ -37,12 +40,20 @@ export default function AppNavigator() {
     } );
 
     function onAuthStateChanged(user) {
+      
+    
         setUser(user);
+      
         if (initializing) setInitializing(false);
+      
+       
       }
     
       useEffect(() => {
+        
         const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
+        setVerify(auth()?.currentUser?.emailVerified);
+       
         return subscriber; // unsubscribe on unmount
       }, []);
     
@@ -55,7 +66,8 @@ export default function AppNavigator() {
       headerShown: false
     }}>
 
-      {  user ? 
+      {  user && verify
+       ? 
 
        <>
        <Stack.Screen name='Drawer' component={DrawerNavigation}/>

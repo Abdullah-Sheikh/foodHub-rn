@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, SafeAreaView, Image, Pressable, Platform } from 'react-native'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { DrawerContentScrollView } from '@react-navigation/drawer';
 import textStyles from '../../utils/textStyles';
 import { color, sub } from 'react-native-reanimated';
@@ -9,8 +9,33 @@ import PrimaryBtn from '../UI/PrimaryBtn';
 import Colors from '../../utils/colors';
 import { widthPercentageToDP } from 'react-native-responsive-screen';
 import auth from '@react-native-firebase/auth';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function SidebarMenu( {props}) {
+
+    const [name ,setName] = useState('Full Name');
+    const [email ,setEmail] = useState('user@example.com');
+
+    useEffect(() => {
+        const  setData = async ()=> {
+            try {
+                const value = await AsyncStorage.getItem('name');
+                const email = await AsyncStorage.getItem('email');
+
+                console.log("Value; "+ value)
+                setName(value)
+                setEmail(email)
+
+                return value;
+              } catch (error) {
+                return null;
+              }
+       
+        }
+        setData();
+    
+    },[name ,email]  );
+ 
 
     function logout () {
 
@@ -27,8 +52,8 @@ export default function SidebarMenu( {props}) {
             <Image 
             source={require('../../assets/images/sidebar_profile_img.png')}
             style={styles.headerImg}/>
-            <Text style={[textStyles.h3 , styles.heading]}>Farion Wick</Text>
-            <Text style={[textStyles.h6 ,styles.subHeading]}>farionwick@gmail.com</Text>
+            <Text style={[textStyles.h3 , styles.heading]}>{name}</Text>
+            <Text style={[textStyles.h6 ,styles.subHeading]}>{email}</Text>
 
            
           
