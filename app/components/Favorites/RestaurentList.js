@@ -13,25 +13,34 @@ export default function RestaurantsList() {
 
     
 
-    const restaurants = useContext(DataContext);
+    const contextCtx = useContext(DataContext);
 
     const renderItem = ({item}) =>{
 
-       
+       const check = item.wishlist;
 
         
 
        
         return(
+            <>
            
+            { check  ?
                
+          
         <RestaurantItem 
+      
+        id={item.key}
         name={item.name} 
         image={item.image} 
         deliveryTime={item.deiveryTime}
         category={item.category} 
         rating={item.rating}
+        wishlist={item.wishlist}
          />
+         : null }
+
+        </>
        
           
     
@@ -45,7 +54,7 @@ export default function RestaurantsList() {
        
 
         <FlatList
-        data={restaurants}
+        data={contextCtx.restaurantsState}
         keyExtractor={item => item.key}
         renderItem={renderItem}
      

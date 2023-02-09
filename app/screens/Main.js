@@ -9,6 +9,7 @@ import CategoryList from '../components/UI/FoodCategory/CategoryList';
 import RestaurantsList from '../components/UI/FeaturedRestaurants/RestaurantsList';
 import { ScrollView } from 'react-native-gesture-handler';
 import FoodList from '../components/UI/PopularFoods/FoodList';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function Main({navigation}) {
 
@@ -23,6 +24,10 @@ export default function Main({navigation}) {
     setCategory(category)
 
   }
+
+  
+
+  
 
   return (
     <View style={styles.root} >

@@ -14,7 +14,7 @@ export default function RestaurantsList({category}) {
 
     
 
-    const restaurants = useContext(DataContext);
+    const contextCtx = useContext(DataContext);
 
     const renderItem = ({item}) =>{
 
@@ -28,11 +28,14 @@ export default function RestaurantsList({category}) {
             { categoryCheck ? 
                
         <RestaurantItem 
+
+        id={item.key}
         name={item.name} 
         image={item.image} 
         deliveryTime={item.deiveryTime}
         category={item.category} 
         rating={item.rating}
+        wishlist = {item.wishlist}
          />
        
           
@@ -53,7 +56,7 @@ export default function RestaurantsList({category}) {
        
 
         <FlatList
-        data={restaurants}
+        data={contextCtx.restaurantsState}
         horizontal
         keyExtractor={item => item.key}
         renderItem={renderItem}

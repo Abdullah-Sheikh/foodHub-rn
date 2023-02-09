@@ -1,13 +1,27 @@
-import { View, Text, StyleSheet, Image, ImageBackground } from 'react-native'
-import React from 'react'
+import { View, Text, StyleSheet, Image, ImageBackground, TouchableOpacity } from 'react-native'
+import React, { useContext } from 'react'
 import textStyles from '../../utils/textStyles';
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import RestaurantProperty from '../UI/FeaturedRestaurants/RestaurantProperty';
 import Category from '../UI/FeaturedRestaurants/Category';
 import { widthPercentageToDP } from 'react-native-responsive-screen';
 import Colors from '../../utils/colors';
+import { DataContext } from '../../Global/data-context';
 
-export default function RestaurantItem({name , image , deliveryTime ,category ,rating}) {
+export default function RestaurantItem({id , name , image , deliveryTime ,category ,rating , wishlist}) {
+
+    const wishListCtx = useContext(DataContext);
+
+    function updateWishList  () {
+
+        wishListCtx.updateRestaurant (
+            id,
+            {
+              wishlist: wishlist == true ? false : true ,
+            }
+          );
+        }
+
   return (
     <View style={styles.root} >
         <ImageBackground
@@ -24,10 +38,13 @@ export default function RestaurantItem({name , image , deliveryTime ,category ,r
 
             </View>
 
+            <TouchableOpacity onPress={updateWishList}>
             <View style={[styles.wishListContainer  , {textAlign:'right', marginLeft:widthPercentageToDP('60%')}]}>
             <Ionicons name="heart" size={15} color="#ffffff"/>
 
             </View>
+
+            </TouchableOpacity>
         </View>
 
           

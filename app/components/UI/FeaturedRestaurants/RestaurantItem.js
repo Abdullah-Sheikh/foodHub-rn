@@ -1,13 +1,32 @@
-import { View, Text, StyleSheet, Image, ImageBackground } from 'react-native'
-import React from 'react'
+import { View, Text, StyleSheet, Image, ImageBackground, TouchableOpacity } from 'react-native'
+import React, { createContext, useContext } from 'react'
 import Colors from '../../../utils/colors';
 import textStyles from '../../../utils/textStyles';
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import RestaurantProperty from './RestaurantProperty';
 import Category from './Category';
 import { widthPercentageToDP } from 'react-native-responsive-screen';
+import { DataContext } from '../../../Global/data-context';
 
-export default function RestaurantItem({name , image , deliveryTime ,category ,rating}) {
+export default function RestaurantItem({id ,name , image , deliveryTime ,category ,rating , wishlist}) {
+
+    const wishListCtx = useContext(DataContext);
+
+    function updateWishList  () {
+
+        wishListCtx.updateRestaurant (
+            id,
+            {
+              wishlist: wishlist == true ? false : true ,
+            }
+          );
+
+
+          
+
+    }
+
+
   return (
     <View style={styles.root} >
         <ImageBackground
@@ -24,10 +43,13 @@ export default function RestaurantItem({name , image , deliveryTime ,category ,r
 
             </View>
 
-            <View style={[styles.wishListContainer  , {textAlign:'right', marginLeft:150}]}>
-            <Ionicons name="heart" size={15} color="#ffffff"/>
-
+            <TouchableOpacity onPress={updateWishList}>
+            <View style={[styles.wishListContainer  , !wishlist ? {backgroundColor:"rgba(255, 255, 255, 0.25)"} :null,  {textAlign:'right', marginLeft:150}]}>
+            <Ionicons name="heart" size={18} color="#ffffff"/>
+          
             </View>
+            </TouchableOpacity>
+
         </View>
 
           
