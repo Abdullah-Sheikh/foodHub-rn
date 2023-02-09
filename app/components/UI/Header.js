@@ -3,13 +3,22 @@ import React from 'react'
 import BackBtn from './BackBtn'
 import textStyles from '../../utils/textStyles'
 import { widthPercentageToDP } from 'react-native-responsive-screen'
+import { useNavigation } from '@react-navigation/native'
 
-export default function Header({image , label}) {
+export default function Header({image , label }) {
+
+  const navigation = useNavigation();
+
+  function profileScreen () {
+
+    navigation.navigate('Profile')
+
+  }
   return (
     <View style={styles.root}>
         <BackBtn/>
         <Text style={[ textStyles.h4,styles.text]}>{label}</Text>
-        { image ?  <TouchableOpacity><Image
+        { image ?  <TouchableOpacity onPress={profileScreen}><Image
         style={styles.image}
         source={require('../../assets/images/profileImg.png')}/>
         </TouchableOpacity>

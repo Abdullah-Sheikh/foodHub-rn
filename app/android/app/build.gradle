@@ -162,6 +162,7 @@ dependencies {
 
     implementation project(':react-native-reanimated')
     implementation project(':react-native-gesture-handler')
+    implementation project(':@react-native-async-storage')
 
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}")
     debugImplementation("com.facebook.flipper:flipper-network-plugin:${FLIPPER_VERSION}") {

@@ -53,6 +53,7 @@ export default function AppNavigator() {
         
         const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
         setVerify(auth()?.currentUser?.emailVerified);
+        
        
         return subscriber; // unsubscribe on unmount
       }, []);

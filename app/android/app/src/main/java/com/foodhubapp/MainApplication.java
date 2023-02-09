@@ -10,6 +10,8 @@ import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint;
 import com.facebook.react.defaults.DefaultReactNativeHost;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
+
+import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
 import com.swmansion.rnscreens.RNScreensPackage;
 import com.th3rdwave.safeareacontext.SafeAreaContextPackage;
 
@@ -24,10 +26,11 @@ import com.swmansion.gesturehandler.RNGestureHandlerPackage;
 
 import io.invertase.firebase.app.ReactNativeFirebaseAppPackage;
 import io.invertase.firebase.auth.ReactNativeFirebaseAuthPackage;
+
+
+
 import io.invertase.firebase.app.ReactNativeFirebaseApp;
-
-
-
+import io.invertase.firebase.database.ReactNativeFirebaseDatabasePackage;
 
 
 public class MainApplication extends Application implements ReactApplication {
@@ -49,7 +52,13 @@ public class MainApplication extends Application implements ReactApplication {
                       new ReanimatedPackage(),
                       new RNGestureHandlerPackage(),
                       new ReactNativeFirebaseAuthPackage() ,
-                      new ReactNativeFirebaseAppPackage()
+                      new ReactNativeFirebaseAppPackage(),
+                       new AsyncStoragePackage(),
+                       new ReactNativeFirebaseDatabasePackage()
+
+
+
+
                        //here
               );
           }

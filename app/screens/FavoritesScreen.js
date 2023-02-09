@@ -4,6 +4,7 @@ import Colors from '../utils/colors';
 import Header from '../components/UI/Header';
 import ComponentSelectionBtn from '../components/UI/ComponentSelectionBtn';
 import FoodItemList from '../components/Favorites/FoodItemList';
+import RestaurantsList from '../components/Favorites/RestaurentList';
 
 export default function FavoritesScreen() {
     const [active , setActive] = useState(true);
@@ -26,7 +27,8 @@ export default function FavoritesScreen() {
   { 
   active ? 
   <FoodItemList/>
-   : null}
+   : 
+   <RestaurantsList/>}
      
     </SafeAreaView>
   )
