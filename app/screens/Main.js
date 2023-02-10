@@ -79,7 +79,7 @@ export default function Main({navigation}) {
 
       <RestaurantsList category={category}/>
 
-      <FoodList/>
+      <FoodList category={category}/>
 
 
       </ScrollView>

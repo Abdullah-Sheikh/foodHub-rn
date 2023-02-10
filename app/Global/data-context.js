@@ -1,18 +1,9 @@
 import React, { useEffect, useReducer, useState } from "react";
 import createPersistedState from 'use-persisted-state';
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import AsyncStorage from "@react-native-async-storage/async-storage"; 
 
-
-
-
-const useCounterState = createPersistedState('restaurantsData');
- 
-
-
-
+  // dummy data
   const restaurantsData = [
-
-
             {key: '1' ,name:`McDonald's`,image: require('../assets/images/Mcdonald.jpg'  ) , deiveryTime:"10-15" ,category:['FASTFOOD' , 'CHICKEN' , 'BURGER'] , rating:'4.6', wishlist : false}  ,
             {key: '2' ,name:`Dunkin Donut's`,image: require('../assets/images/dunkinDonuts.jpg'  ) , deiveryTime:"15-20" ,category:['DONUT' , 'BAKESHOP' ] , rating:'4.8' , wishlist : false}  ,
             {key: '3' ,name:`Pizza Hut`,image: require('../assets/images/PizzaHut.png'  ) , deiveryTime:"15-20" ,category:['PIZZA' , 'CHICKEN' , 'FASTFOOD' ] , rating:'4.7' , wishlist : false}  ,
@@ -20,10 +11,7 @@ const useCounterState = createPersistedState('restaurantsData');
             {key: '5' ,name:`Tao Pan`,image: require('../assets/images/taoPan.jpg'  ) , deiveryTime:"25-35" ,category:['MEXICAN' , 'CHICKEN' ] , rating:'4.9' , wishlist : false}  ,
             {key: '6' ,name:`OD Donuts`,image: require('../assets/images/OD.jpg'  ) , deiveryTime:"15-20" ,category:['DONUT' , 'BAKESHOP' ] , rating:'4.9' , wishlist : false}  ,
             {key: '7' ,name:`Hardee's`,image: require('../assets/images/Hardees.jpg'  ) , deiveryTime:"15-20" ,category:['FASTFOOD' , 'CHICKEN' , 'BURGER'] , rating:'4.8', wishlist : false}  ,
-
-
-]
-
+];
 
 
 const DataContext = React.createContext({
@@ -61,14 +49,9 @@ const ContextProvider = ({children}) => {
     useEffect(() => {
       const fun =  async  () => {
         
-
-        
-
         try {
 
-        
-          
-        
+         
         const arr = await AsyncStorage.getItem('restaurantsWishList');
 
         if(!arr)
@@ -76,18 +59,16 @@ const ContextProvider = ({children}) => {
           AsyncStorage.setItem('restaurantsWishList' , '0')
         }
 
-        console.log(arr[0])
-
         if(arr)
         {
         
        for (var i in restaurants) 
        for( var j in arr){
           if (restaurants[i].key == arr[j]) {
-           // console.log(restaurants[i].name)
+           
             const wishlist  = true
             updateRestaurant  (arr[j],{wishlist} )
-           // restaurants[i].wishlist =  true;
+           
              break; //Stop this loop, we found it!
           }
         }
@@ -108,16 +89,14 @@ const ContextProvider = ({children}) => {
 
       try {
         
-      
       const arr = await AsyncStorage.getItem('restaurantsWishList');
       const check = arr.includes(key);
       if(check)
       {
         return
       }
-      console.log("Before"+ arr)
-     const result = arr.concat(key)
-     console.log("After"+ result)
+      
+      const result = arr.concat(key) // concatenate key with previous keys
       AsyncStorage.setItem('restaurantsWishList' , result)
 
     } catch (error) {
@@ -130,11 +109,10 @@ const ContextProvider = ({children}) => {
 
       try {
         
-      
         const arr = await AsyncStorage.getItem('restaurantsWishList');
         
         console.log("Before"+ arr)
-        const result =arr.replace(key, '')
+        const result =arr.replace(key, '') // replace string to remove key of clicked restaurant
        console.log("After"+ result)
         AsyncStorage.setItem('restaurantsWishList' , result)
 
@@ -145,34 +123,23 @@ const ContextProvider = ({children}) => {
       }
 
     }
-    
-
-
-   
-
   
-
   function updateRestaurant  (key, restaurantData) {
     console.log("Update fun call : ")
     dispatch({ type: 'UPDATE', payload: { key: key, data: restaurantData } });
 
+    // to persist wishlist data 
+    // use Async Storage
+
     if(restaurantData.wishlist)
     {
-      push(key);
+      
+      push(key); // to add key in wishlist 
     }
     else{
-      remove(key);
+      remove(key); // to remove key in wishlist 
     }
-
-    
-   
-
-
-    
-
-    
-    
-    
+  
   }
 
   const value = {
@@ -186,7 +153,6 @@ const ContextProvider = ({children}) => {
             {children}
         </DataContext.Provider>
     )
-
 
 }
 

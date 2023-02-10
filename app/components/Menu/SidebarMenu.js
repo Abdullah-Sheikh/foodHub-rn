@@ -34,7 +34,7 @@ export default function SidebarMenu( {props}) {
         }
         setData();
     
-    },[name ,email]  );
+    },[]  );
  
 
     function logout () {
