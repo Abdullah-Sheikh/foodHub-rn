@@ -87,6 +87,10 @@ Here's how you can get started with the app:
     
     
     Thank you for checking out the Food Delivery App! We hope you find it useful and would love to see your contributions. Happy coding! 🍟🍗🌭
+    
+## Design Credits : 
+
+[FoodHub](https://www.figma.com/community/file/1016293188579696778) Figma Community Design
 
 
 ## 🤓 Author(s)
